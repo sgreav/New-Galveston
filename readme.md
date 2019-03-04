@@ -18,10 +18,10 @@ The compilation is controlled by `tsconfig.json` and you can find out all about 
 ### Gulp
 Gulp is used to execute common commands. I use it here because it is easier to maintain than a bunch of scripts in `package.json`, there are lots of cool plugins for gulp that let you do lots of cool things, you can find out more about gulp [here](https://gulpjs.com/)
 
-### Webpack
+### Webpack
 Webpack is everyone's favourite bundler, it is mostly used here in a development only capacity, but you can check out more at [webpack.js.org](https://webpack.js.org).
 
-### React
+### React
 I've not written any cool react in this project yet, watch this spacae
 
 ### Redux
