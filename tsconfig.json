@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+      "outDir": "build",
+      "module": "commonjs",
+      "jsx": "react",
+      "lib": ["dom", "es2017"],
+      "moduleResolution": "node",
+      "noImplicitAny": true,
+      "target": "es6",
+      "types": [
+        "node"
+      ],
+      "typeRoots": [
+        "node_modules",
+        "node_modules/@types"
+      ],
+      "baseUrl": "./"
+    },
+    "include": [
+      "src/**/*"
+    ]
+}
