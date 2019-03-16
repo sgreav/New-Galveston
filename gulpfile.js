@@ -2,7 +2,6 @@ const gulp = require('gulp')
 const ts = require('gulp-typescript')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
-const gutil = require('gulp-util')
 const webpackConfig = require('./webpack.config.js')
 
 // We can use gulp-typescript to compile our typescript to javascript and output the js files to ./build
@@ -11,6 +10,7 @@ const build = function() {
     return ts.createProject('tsconfig.json').src()
     .pipe(gulp.dest('./build'))
 }
+
 const webpackDevServer = function() {
 	// Start a webpack-dev-server
   const compiler = webpack(webpackConfig)

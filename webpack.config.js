@@ -1,5 +1,5 @@
-
-const webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
@@ -14,15 +14,25 @@ module.exports = {
   ],
   entry: "./src/index.tsx",
   output: {
-    path: __dirname + '/dist',
-    filename: "bundle.js"
+    path: __dirname + '/dist'
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"]
+    extensions: [".scss", ".ts", ".tsx", ".js"]
   },
   module: {
-    rules: [
-      { test: /\.tsx?$/, loader: "ts-loader", options: { transpileOnly: true } }
+    rules: [{
+      // borrowed from https://github.com/joshuacrass/react-scss-webpack/blob/master/config/webpack-dev-config.js
+      test: /\.scss$/,
+      enforce: 'pre',
+      use: [
+        'style-loader',
+        'css-loader',
+        'typed-css-modules-loader',
+        'sass-loader'
+      ],
+    },
+      { test: /\.tsx?$/, loader: "ts-loader" },
+      
     ]
   }
 };

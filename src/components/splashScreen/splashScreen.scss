@@ -1,0 +1,144 @@
+$sky: #CEFFED;
+$desert: #FFDA8C;
+
+$sunSize: 50%;
+$sunColor: #DBCA4C;
+$cactusColor: #77FF83;
+
+.splashScreen-container {
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+}
+
+@keyframes textfall-sub {
+  from {
+      opacity: 0;
+      top: -25px;
+  }
+  to {
+      opacity: 1;
+      top: 0px;
+  }
+}
+@keyframes textfall-main {
+  from {
+      opacity: 0;
+      top: 5px;
+  }
+  to {
+      opacity: 1;
+      top: 55px;
+  }
+}
+
+.splashScreen-title {
+  position:absolute;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Orbitron', sans-serif;
+  & h2 {
+    position: absolute;
+    color: rgba(0,0,0, 0.5);
+    margin-bottom: 0px;
+    animation: textfall-sub 1s 0s normal forwards ease-out;
+  }
+
+  & h1 {
+    opacity: 0;
+    position: absolute;
+    animation: textfall-main 0.75s 1.25s normal forwards ease-out;
+    font-size: 40px;
+    letter-spacing: 10px;
+  }
+}
+
+.background { 
+  width: 100%;
+  &.sky {
+    height: 60%;
+    background: $sky;
+  }
+  &.desert {
+    background: $desert;
+    flex-grow: 1;
+    z-index: 2;
+    border-top: 1px solid white;
+  }
+}
+
+.splashScreen-items {
+  position: absolute;
+  display:flex;
+  width: 100%;
+  height: 50%;
+  flex-direction: row;
+  justify-content: center;
+  top: 50%;
+}
+.sun {
+  background: $sunColor;
+  z-index: 1;
+  height: 200px;
+  width: $sunSize;
+  border-top-left-radius: $sunSize;
+  border-top-right-radius: $sunSize;
+}
+
+.cactus-container {
+  position:relative;
+  left: 20%;
+  height: 70%;
+  top: -30%;
+  width: 10%;
+  z-index: 3;
+}
+
+.cactus {
+  background: $cactusColor;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  &.stalk {
+    height: 100%;
+    width: 30px;
+  }
+
+  $armWidth: 25px;
+  $armOffset: -40px;
+  $armHeight: 30%;
+  $branchWidth: 25px;
+  $armTop: 30px;
+  &.arm {
+    position: absolute;
+    height: $armHeight;
+    width: $armWidth;
+    left: $armOffset;
+    top: $armTop;
+    &.right {
+      height:  $armHeight / 2;
+      width: $armWidth / 2;
+      left: $armOffset * -1;
+      top: $armTop * 3;
+    }
+  }
+
+  &.branch {
+    position: absolute;
+    top: $armHeight;
+    margin-top: $branchWidth;
+    height: $branchWidth;
+    width: $armWidth * 2;
+    left: $armOffset;
+    border-bottom-left-radius: 10px;
+    &.right {
+      height:  $branchWidth / 2;
+      width: $armWidth;
+      left: $armWidth + 3;
+      top: $armTop * 3;
+      border-radius: 0;
+      border-bottom-right-radius: 5px;
+    }
+  }
+}
