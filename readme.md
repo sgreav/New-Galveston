@@ -6,7 +6,7 @@ This is a sample TypeScript, React/Redux project that you might want to fork for
 
 `npm i`
 
-`gulp`
+`npx gulp`
 
 The page will transpile the typescript source and be bundled by webpack automatically. It is started with webpack-dev-server in hot mode for your development pleasure.
 
